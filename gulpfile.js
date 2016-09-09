@@ -5,6 +5,7 @@ var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
+var imagemin = require('gulp-imagemin');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -23,7 +24,7 @@ gulp.task('sass', function() {
         }))
 });
 
-gulp.task('useref', function(){
+gulp.task('useref', function() {
     return gulp.src('app/*.html')
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify()))
@@ -32,7 +33,13 @@ gulp.task('useref', function(){
         .pipe(gulp.dest('dist'))
 });
 
-gulp.task('watch', ['browser-sync', 'sass'], function (){
+gulp.task('images', function() {
+    return gulp.src('app/images/**/*.+(png|jpg|gif|svg)')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'))
+});
+
+gulp.task('watch', ['browser-sync', 'sass'], function() {
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
