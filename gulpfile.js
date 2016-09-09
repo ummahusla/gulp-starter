@@ -8,6 +8,7 @@ var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
+var runSequence = require('run-sequence');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -35,6 +36,7 @@ gulp.task('useref', function() {
         .pipe(gulp.dest('dist'));
 });
 
+// Compress all images and move them to /dist/images
 gulp.task('images', function() {
     return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
         // Caching images that ran through imagemin
@@ -55,12 +57,23 @@ gulp.task('clean:dist', function() {
     return del.sync('dist');
 });
 
-gulp.task('build', [`clean:dist`, `sass`, `useref`, `images`, `fonts`], function (){
-    console.log('Building files!');
-})
+
 
 gulp.task('watch', ['browser-sync', 'sass'], function() {
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
+});
+
+gulp.task('build', function (callback) {
+  runSequence('clean:dist',
+    ['sass', 'useref', 'images', 'fonts'],
+    callback
+  )
+});
+
+gulp.task('default', function (callback) {
+    runSequence(['sass','browser-sync', 'watch'],
+        callback
+    )
 });
