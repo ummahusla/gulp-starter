@@ -43,6 +43,11 @@ gulp.task('images', function(){
         .pipe(gulp.dest('dist/images'))
 });
 
+gulp.task('fonts', function() {
+    return gulp.src('app/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'))
+})
+
 gulp.task('watch', ['browser-sync', 'sass'], function() {
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/*.html', browserSync.reload);
