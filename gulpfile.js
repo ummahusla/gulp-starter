@@ -2,6 +2,9 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
+var uglify = require('gulp-uglify');
+var gulpIf = require('gulp-if');
+var cssnano = require('gulp-cssnano');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -23,6 +26,9 @@ gulp.task('sass', function() {
 gulp.task('useref', function(){
     return gulp.src('app/*.html')
         .pipe(useref())
+        .pipe(gulpIf('*.js', uglify()))
+        // Minifies only if it's a CSS file
+        .pipe(gulpIf('*.css', cssnano()))
         .pipe(gulp.dest('dist'))
 });
 
