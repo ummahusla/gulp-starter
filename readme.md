@@ -1,6 +1,6 @@
 # Gulp Starter
 
-Gulp starter project template
+**Gulp Starter** is a project template which uses [Gulp](http://gulpjs.com/) to compile CSS to SASS, minimise CSS and JS files, optimising images, [Browsersync](https://browsersync.io/) for time-saving whil development and much more!
 
 ___
 
