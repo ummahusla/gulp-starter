@@ -2,28 +2,32 @@
 
 Gulp starter project template
 
-### Prerequisities
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+1. `git clone https://github.com/ummahusla/Gulp-Starter.git folder-name`
+2. `cd folder-name && npm install`
+3. `gulp`
 
-Stay what the step will be
-
-```
-Give the example
-```
-
-And repeat
+You should see very similar output in console
 
 ```
-until finished
+[10:53:52] Using gulpfile /folder-name/gulpfile.js
+[10:53:52] Starting 'default'...
+[10:53:52] Starting 'sass'...
+[10:53:52] Starting 'browser-sync'...
+[10:53:52] Finished 'browser-sync' after 12 ms
+[BS] Access URLs:
+ ---------------------------------------
+       Local: http://localhost:3000
+    External: http://192.168.15.166:3000
+ ---------------------------------------
+          UI: http://localhost:3001
+ UI External: http://192.168.15.166:3001
+ ---------------------------------------
+[BS] Serving files from: app
+[BS] 1 file changed (styles.css)
+[10:53:52] Finished 'sass' after 146 ms
+[10:53:52] Starting 'watch'...
+[10:53:52] Finished 'watch' after 18 ms
+[10:53:52] Finished 'default' after 167 ms
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
