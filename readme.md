@@ -2,6 +2,8 @@
 
 Gulp starter project template
 
+___
+
 ### Installing
 
 1. `git clone https://github.com/ummahusla/Gulp-Starter.git folder-name`
@@ -32,6 +34,8 @@ You should see very similar output in console
 [10:53:52] Finished 'default' after 167 ms
 ```
 
+___
+
 ### Contributing
 
 1. Fork it!
@@ -39,6 +43,8 @@ You should see very similar output in console
 3. Commit your changes: git commit -am 'Add some feature'
 4. Push to the branch: git push origin my-new-feature
 5. Submit a pull request
+
+___
 
 ### License
 
