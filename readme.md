@@ -36,6 +36,22 @@ You should see very similar output in console
 
 ___
 
+### Dependencies
+
+* browser-sync
+* del
+* gulp
+* gulp-cache
+* gulp-cssnano
+* gulp-if
+* gulp-imagemin
+* gulp-sass
+* gulp-uglify
+* gulp-useref
+* run-sequence
+
+___
+
 ### Contributing
 
 1. Fork it!
