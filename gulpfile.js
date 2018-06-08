@@ -21,7 +21,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 4 versions'],
             cascade: false
